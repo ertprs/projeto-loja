@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -13,5 +14,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use('/api', routes);
 
-const port = 3333;
+const port = process.env.PORT || 3333;
 app.listen(port, () => console.log(`\nServer running at http://localhost:${port}\n`));
